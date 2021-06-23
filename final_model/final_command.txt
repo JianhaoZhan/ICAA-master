@@ -1,0 +1,23 @@
+final test:
+ucf101:
+rgb:
+python test_single_stream.py --batch_size 1 --n_classes 101 --model resnext --model_depth 101 --log 0 --dataset UCF101 --modality RGB --sample_duration 64 --split 1 --only_RGB   --frame_dir /home/eed-server3/Downloads/MARS/MARS-master/dataset/UCF101 --annotation_path "dataset/UCF101_labels" --result_path "results/" --resume_path1 ./final_model/split1/ucf/rgb/varLR4.pth
+flow:
+python test_single_stream.py --batch_size 1 --n_classes 101 --model resnext --model_depth 101 --log 0 --dataset UCF101 --modality Flow --sample_duration 64 --split 1  --frame_dir /home/eed-server3/Downloads/MARS/MARS-master/dataset/UCF101 --annotation_path "dataset/UCF101_labels" --result_path "results/" --resume_path1 ./final_model/split1/ucf/flow/varLR22.pth
+two:
+python test_two_stream.py --batch_size 1 --n_classes 101 --model resnext --model_depth 101 --log 0 --dataset UCF101 --modality RGB_Flow --sample_duration 64 --split 1  --frame_dir /home/eed-server3/Downloads/MARS/MARS-master/dataset/UCF101 --annotation_path "dataset/UCF101_labels" --result_path "results/" --resume_path1 ./final_model/split1/ucf/rgb/varLR4.pth  --resume_path2 ./final_model/split1/ucf/flow/varLR22.pth
+mars:
+python test_single_stream.py --batch_size 1 --n_classes 101 --model resnext --model_depth 101 --log 0 --dataset UCF101 --modality RGB --sample_duration 64 --split 1 --only_RGB --frame_dir /home/eed-server3/Downloads/MARS/MARS-master/dataset/UCF101 --annotation_path "dataset/UCF101_labels" --result_path "results/"  --resume_path1 ./final_model/split1/ucf/mars/varLR19.pth
+three:
+python test_three_stream.py --batch_size 1 --n_classes 101 --model resnext --model_depth 101 --log 0 --dataset UCF101 --modality RGB_Flow --sample_duration 64 --split 1 --frame_dir /home/eed-server3/Downloads/MARS/MARS-master/dataset/UCF101 --annotation_path "dataset/UCF101_labels/" --result_path "results/"   --resume_path1 ./final_model/split1/ucf/rgb/varLR4.pth  --resume_path3 ./final_model/split1/ucf/flow/varLR22.pth  --resume_path2 ./final_model/split1/ucf/mars/varLR20.pth
+
+hmdb51
+rgb:
+python test_single_stream.py --batch_size 1 --n_classes 51 --model resnext --model_depth 101 --log 0 --dataset HMDB51 --modality RGB --sample_duration 64 --split 1 --only_RGB   --frame_dir /home/eed-server3/Downloads/MARS/MARS-master/dataset/HMDB51 --annotation_path "dataset/HMDB51_labels" --result_path "results/" --resume_path1 ./final_model/split1/hmdb/rgb/varLR22.pth 
+flow:
+python test_single_stream.py --batch_size 1 --n_classes 51 --model resnext --model_depth 101 --log 0 --dataset HMDB51 --modality Flow --sample_duration 64 --split 1  --frame_dir /home/eed-server3/Downloads/MARS/MARS-master/dataset/HMDB51 --annotation_path "dataset/HMDB51_labels" --result_path "results/" --resume_path1  ./final_model/split1/hmdb/flow/vaLR12.pth
+mars:
+python test_single_stream.py --batch_size 1 --n_classes 51 --model resnext --model_depth 101 --log 0 --dataset HMDB51 --modality RGB --sample_duration 64 --split 1 --only_RGB --frame_dir /home/eed-server3/Downloads/MARS/MARS-master/dataset/HMDB51 --annotation_path "dataset/HMDB51_labels" --result_path "results/"  --resume_path1 ./final_model/split1/hmdb/mars/24_0.8085.pth
+
+mars+rgb+flow
+python test_three_stream.py --batch_size 1 --n_classes 51 --model resnext --model_depth 101 --log 0 --dataset HMDB51 --modality RGB_Flow --sample_duration 64 --split 2 --frame_dir /home/eed-server3/Downloads/MARS/MARS-master/dataset/HMDB51 --annotation_path "dataset/HMDB51_labels/" --result_path "results/"   --resume_path1 results/final/split2/hmdb_rgb/varLR13.pth   --resume_path3 final_model/split2/hmdb/flow/varLR22.pth  --resume_path2 trained_models/HMDB51/MARS_HMDB51_2_64f.pth
